@@ -1,0 +1,145 @@
+:root {
+  --color-primary: #204949;
+  --color-secondary: #03212f;
+  --color-accent: #307b7b;
+  --color-text-light: #ffffff;
+  --color-text-dark: #000000;
+  --color-text-subtle: #faf9ff;
+  --font-main: 'Poppins', sans-serif;
+  --font-logo: 'Zen Antique Soft', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-text-subtle);
+}
+
+.container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-text-light);
+}
+
+ul {
+  list-style: none;
+}
+
+.site-header {
+  width: 100%;
+  z-index: 100;
+  background: linear-gradient(154deg, #307b7b 0%, #1f4646 100%);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 118px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 77px;
+  height: 80px;
+}
+
+.logo-text {
+  font-family: var(--font-logo);
+  font-size: 23.7px;
+  font-weight: 400;
+  color: var(--color-text-light);
+}
+
+.main-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+
+.main-nav a {
+  font-size: 19.86px;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+  color: var(--color-text-light);
+}
+
+.main-nav a:hover {
+  color: #60cece;
+}
+
+/* Link yang sedang aktif */
+.main-nav a.active {
+  color: #60cece;
+}
+
+/* Underline untuk link aktif */
+.main-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #60cece;
+  border-radius: 2px;
+}
+
+.btn-login {
+  background-color: var(--color-text-light);
+  color: #1f4646;
+  font-size: 22.7px;
+  font-weight: 600;
+  padding: 6px 20px;
+  border-radius: 6px;
+  text-align: center;
+  min-width: 117px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1200px) {
+  .main-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .header-container {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .logo-text {
+    display: none;
+  }
+}

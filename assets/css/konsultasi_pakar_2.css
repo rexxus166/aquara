@@ -1,0 +1,41 @@
+/* ==== Header Profil Pakar ==== */
+.header-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+}
+
+.header-profile .profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.2;
+}
+
+.header-profile .profile-info .name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.header-profile .profile-info .role {
+  font-size: 13px;
+  color: #cde4e4;
+  margin-top: 2px;
+}
+
+.header-profile img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #d9d9d9;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.header-profile .dropdown-icon {
+  font-size: 12px;
+  margin-left: -6px;
+  color: #fff;
+}

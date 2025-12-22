@@ -1,0 +1,319 @@
+/* IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Alatsi&family=Amiri&family=Alike+Angular&display=swap');
+
+:root {
+    --primary-dark-blue: #0b4d68;
+    --primary-deep-blue: #013746;
+    --primary-light-blue: #1699ce;
+    --text-light: #f5f3f3;
+    --text-dark: #03171f;
+    --text-placeholder: rgba(0, 0, 0, 0.5);
+    --background-white: #ffffff;
+    --background-light-gray: #efedf8;
+    --border-gray: #cccbcb;
+    --input-bg: rgba(234, 233, 246, 0.5);
+    --input-border: rgba(0, 0, 0, 0.15); /* Lebih halus */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-white);
+    color: var(--primary-dark-blue);
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* --- ANIMASI HALAMAN MUNCUL --- */
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.login-container {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    background-color: var(--background-white);
+    overflow: hidden;
+}
+
+/* --- PANEL KIRI (PROMO & GAMBAR) --- */
+.promo-panel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: white;
+    background-color: var(--primary-dark-blue);
+    overflow: hidden;
+}
+
+
+.promo-panel:hover .promo-background {
+    transform: scale(1.02); /* Zoom in dikit pas hover */
+}
+
+.promo-panel > * { position: relative; z-index: 2; }
+
+/* TOMBOL KEMBALI */
+.back-link {
+    position: absolute;
+    top: 34px; left: 28px;
+    display: flex; align-items: center; gap: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: var(--primary-dark-blue);
+    padding: 10px 20px;
+    border-radius: 50px; /* Lebih bulat */
+    font-family: 'Alatsi', sans-serif;
+    font-size: 15px; font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+.back-link:hover {
+    background-color: #fff;
+    transform: translateX(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.back-link img {
+    width: 18px; height: 18px;
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+}
+.back-link:hover img {
+    transform: rotate(180deg) translateX(3px);
+}
+
+/* --- LOGO ANIMASI IKAN --- */
+.logo-container {
+    text-align: center;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    /* Pastikan tidak ada margin/padding yang mengganggu */
+    margin: 0;
+    padding: 0;
+    /* Jika perlu, beri tinggi minimum agar posisinya stabil */
+    min-height: 200px; 
+}
+
+/* Animasi Logo Mengapung */
+@keyframes floatFish {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(-2deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(5px) rotate(2deg); }
+}
+
+.logo-image {
+    width: 100%;
+    max-width: 400px; /* Ukuran diperbaiki agar tidak terlalu besar */
+    height: auto;
+    /* Pastikan tidak ada border atau outline */
+    border: none; 
+    outline: none;
+    display: block; /* Mencegah gap di bawah gambar */
+    
+    /* Efek Bayangan Lebih Halus */
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); 
+    
+    /* Animasi */
+    animation: floatFish 6s ease-in-out infinite;
+}
+
+/* --- PANEL KANAN (FORM) --- */
+.form-panel {
+    flex: 1;
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 80px;
+    background-color: var(--background-white);
+}
+
+.form-content {
+    width: 100%; max-width: 480px;
+    display: flex; flex-direction: column;
+}
+
+.form-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 38px;
+    line-height: 1.2; text-align: left;
+    margin: 0 0 40px 0;
+    background: linear-gradient(90deg, #0b4d68 0%, #3f8686 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.login-form {
+    display: flex; flex-direction: column; width: 100%;
+}
+
+/* --- TOMBOL GOOGLE --- */
+.google-login-btn {
+    display: flex; align-items: center; justify-content: center;
+    gap: 12px; height: 55px;
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px; font-weight: 600;
+    color: #444;
+    margin-bottom: 25px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+.google-login-btn:hover {
+    border-color: #3f8686;
+    background-color: #f0fdfd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transform: translateY(-2px);
+    color: #0b4d68;
+}
+.google-login-btn img { width: 24px; height: 24px; }
+
+/* SEPARATOR */
+.separator {
+    display: flex; align-items: center; text-align: center;
+    gap: 15px; margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px; font-weight: 500; color: #aaa;
+}
+.separator::before, .separator::after {
+    content: ''; flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+/* --- INPUT FIELDS --- */
+.form-group { margin-bottom: 20px; }
+.form-group label {
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; font-size: 14px;
+    margin-bottom: 8px;
+    color: var(--primary-deep-blue);
+    transition: color 0.3s;
+}
+.form-group:focus-within label { color: #3f8686; } /* Label berubah warna saat fokus */
+
+.input-wrapper { position: relative; }
+
+.input-icon {
+    position: absolute; left: 15px; top: 50%;
+    transform: translateY(-50%);
+    width: 20px; height: 20px;
+    object-fit: contain; opacity: 0.4;
+    transition: all 0.3s;
+}
+.password-icon { transform: translateY(-50%) rotate(45deg); }
+
+/* Efek saat input difokuskan */
+.input-wrapper:focus-within .input-icon {
+    opacity: 1; transform: translateY(-50%) scale(1.1);
+    filter: brightness(0.5) sepia(1) hue-rotate(140deg) saturate(3); /* Jadi Teal */
+}
+.input-wrapper:focus-within .password-icon {
+    transform: translateY(-50%) rotate(45deg) scale(1.1);
+}
+
+.input-wrapper input {
+    width: 100%; height: 50px;
+    padding: 12px 15px 12px 45px; /* Padding kiri disesuaikan */
+    background-color: #f9f9f9;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif; /* Ganti Amiri ke Poppins biar modern */
+    font-size: 15px; color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+.input-wrapper input:hover { background-color: #f0f0f0; }
+.input-wrapper input:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: var(--primary-light-blue);
+    box-shadow: 0 0 0 4px rgba(22, 153, 206, 0.1); /* Efek Glow halus */
+}
+.input-wrapper input::placeholder { color: #bbb; font-weight: 400; }
+
+/* --- LINKS --- */
+.form-links {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 30px; margin-top: 5px; font-size: 13px;
+}
+.create-account-link { font-family: 'Poppins', sans-serif; color: #666; margin: 0; }
+.create-account-link a {
+    font-weight: 700; color: var(--primary-light-blue);
+    position: relative;
+}
+/* Garis bawah animasi */
+.create-account-link a::after, .forgot-password-link::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -2px; left: 0; background-color: var(--primary-light-blue);
+    transition: width 0.3s;
+}
+.create-account-link a:hover::after, .forgot-password-link:hover::after { width: 100%; }
+
+.forgot-password-link {
+    font-family: 'Poppins', sans-serif; font-weight: 600;
+    color: var(--primary-dark-blue); position: relative;
+}
+
+/* --- TOMBOL MASUK (UTAMA) --- */
+.submit-btn {
+    height: 55px; width: 100%;
+    background: linear-gradient(135deg, #013746 0%, #1699ce 100%);
+    border: none; border-radius: 50px;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px; font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(1, 55, 70, 0.25);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(1, 55, 70, 0.4);
+    filter: brightness(1.1);
+}
+.submit-btn:active { transform: translateY(2px) scale(0.98); }
+
+/* TERMS TEXT */
+.terms-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px; line-height: 1.6;
+    text-align: center; max-width: 400px; margin: 0 auto;
+    color: #888;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+    .form-panel { padding: 40px; }
+}
+@media (max-width: 1024px) {
+    .login-container { flex-direction: column; min-height: auto; }
+    .promo-panel { display: none; } /* Sembunyikan gambar di HP */
+    .form-panel { padding: 60px 30px; min-height: 100vh; }
+    .form-title { font-size: 32px; text-align: center; }
+    .login-form { max-width: 400px; margin: 0 auto; }
+}

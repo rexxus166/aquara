@@ -1,0 +1,431 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0f4a4a;
+    color: white;
+}
+
+/* Header */
+.site-header {
+  background: linear-gradient(154deg, #0f4a4a 0%, #1f4646 258.06%);
+  box-shadow: 0px -19px 62.8px 4px #0b4d68;
+  padding: 19px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 77px;
+  height: 80px;
+}
+
+.logo-text {
+  font-family: var(--font-logo);
+  font-size: 23.7px;
+  color: var(--color-white);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 33px;
+}
+
+.main-nav a {
+  font-size: 19.8px;
+  font-weight: 600;
+  color: var(--color-white);
+  transition: opacity 0.3s;
+}
+
+.main-nav a:hover {
+  opacity: 0.8;
+  color: #4ecdc4;
+}
+
+.btn-login {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+  font-size: 22.7px;
+  font-weight: 600;
+  padding: 6px 39px;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #f0f0f0;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 74, 74, 0.3);
+}
+
+@media (max-width: 1200px) {
+  .main-nav {
+    display: none; /* Simple hide for mobile, a real project would use a hamburger menu */
+  }
+  .header-container {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        display: none;
+    }
+    .btn-login {
+        padding: 4px 20px;
+        font-size: 18px;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background: url('../img/aquara/background1.png') no-repeat center center/cover;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.gabung-btn {
+    background: linear-gradient(135deg, #4ecdc4, #26a69a);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.gabung-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+}
+
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+/* Features Section */
+.features {
+    background: white;
+    color: #333;
+    padding: 80px 0;
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.features h2 {
+    text-align: center;
+    font-size: 36px;
+    color: #1a5f5f;
+    margin-bottom: 60px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.feature-card {
+    background: #1a5f5f;
+    color: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 40px;
+    color: #4ecdc4;
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Articles Section */
+.articles {
+    background: #1a5f5f;
+    padding: 80px 0;
+}
+
+.articles-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.articles h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 60px;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.article-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    color: #333;
+}
+
+.article-image {
+    width: 150px;
+    height: 120px;
+    background: #ddd;
+    background-size: cover;
+    background-image: url('https://images.unsplash.com/photo-1614000484734-9ee69aec92a4?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+.article-image2 {
+    width: 150px;
+    height: 120px;
+    background: #ddd;
+    background-size: cover;
+    background-image: url('https://media.istockphoto.com/id/2101847521/id/foto/fish-farming-in-france.jpg?s=1024x1024&w=is&k=20&c=nTiApjNedvR0BLWnQfJP45Wyj5J1eMNkgVruem55htA=');
+}
+
+.article-image3 {
+    width: 150px;
+    height: 120px;
+    background: #ddd;
+    background-size: cover;
+    background-image: url('https://media.istockphoto.com/id/2192477128/id/foto/aquaculture-tilapia-fish-tilapia-fish-have-been-cut-to-grow-faster-suitable-for-farming-in-the.jpg?s=1024x1024&w=is&k=20&c=gdVKoUNhJWkrKJyGNh3T-ZCd-4S_RRiBlWCWoavcLCc=');
+}
+
+.article-image4 {
+    width: 150px;
+    height: 120px;
+    background: #ddd;
+    background-size: cover;
+    background-image: url('https://images.unsplash.com/photo-1725404575980-89f286b426d7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+}
+
+.article-content {
+    padding: 20px;
+    flex: 1;
+}
+
+.article-content h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #1a5f5f;
+}
+
+.article-content p {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+}
+
+.lihat-semua-btn {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background: transparent;
+    color: white;
+    border: 2px solid #4ecdc4;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.lihat-semua-btn:hover {
+    background: #4ecdc4;
+    color: #1a5f5f;
+}
+
+/* Footer */
+.footer {
+    background: #03212F;
+    padding: 40px 0;
+    border-top: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+    color: #4ecdc4;
+}
+
+.footer p {
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(78, 205, 196, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4ecdc4;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    background: #4ecdc4;
+    color: white;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(78, 205, 196, 0.2);
+    opacity: 0.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.main-nav a {
+    color: #ffffff;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.main-nav a:hover {
+  color: #7fdad1; /* toska hover */
+}
+
+.main-nav a.active {
+  color: #7fdad1; /* toska AQUARA */
+    font-weight: 700;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #2fb8ac,
+        #7fdad1
+    );
+    border-radius: 2px;
+}

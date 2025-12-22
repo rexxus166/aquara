@@ -1,0 +1,47 @@
+.hero-section {
+  height: 300px; /* tinggi area hero, bisa kamu sesuaikan */
+  display: flex;
+  justify-content: center;  /* rata tengah secara horizontal */
+  align-items: center;      /* rata tengah secara vertikal */
+  background: linear-gradient(180deg, #004d4d 0%, #004d4d 100%);
+  border-radius: 0 0 30px 30px;
+  color: white;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 64px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.main-nav a {
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.main-nav a:hover {
+  color: #7fdad1; /* toska hover */
+}
+
+.main-nav a.active {
+  color: #7fdad1; /* toska AQUARA */
+  font-weight: 700;
+}
+
+.main-nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #2fb8ac,
+    #7fdad1
+  );
+  border-radius: 2px;
+}

@@ -1,0 +1,359 @@
+/* IMPORT FONT */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Alatsi&family=Amiri&family=Alike+Angular&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #013746;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* --- ANIMASI FADE IN HALAMAN --- */
+@keyframes fadeInPage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.signup-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+  animation: fadeInPage 0.8s ease-out; /* Efek masuk halaman */
+}
+
+/* --- BRANDING PANEL (KIRI) --- */
+.branding-panel {
+  background-color: #0b4d68;
+  background-image: url('../img/aquara/regisimg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 35px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+/* Overlay halus agar teks/logo lebih jelas */
+.branding-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(11, 77, 104, 0.8), rgba(1, 55, 70, 0.4));
+  z-index: 0;
+}
+.branding-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  position: relative;
+  z-index: 1; /* Agar konten di atas overlay */
+}
+
+/* Tombol Kembali dengan Efek Hover */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px; /* Sedikit lebih lega */
+  background-color: rgba(239, 237, 248, 0.9); /* Sedikit transparan */
+  border-radius: 50px; /* Lebih bulat modern */
+  font-family: 'Alatsi', sans-serif;
+  font-size: 16px;
+  color: #0b4d68;
+  align-self: flex-start;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+.back-button:hover {
+  transform: translateX(-5px); /* Bergerak ke kiri sedikit */
+  background-color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.back-arrow-icon {
+  width: 21px;
+  height: 13px;
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+.back-button:hover .back-arrow-icon {
+  transform: rotate(180deg) translateX(3px); /* Panah ikut gerak */
+}
+
+/* Logo Animasi Ringan */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.logo-image {
+  width: 461px;
+  height: 475px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); /* Bayangan lembut */
+  animation: floatLogo 6s ease-in-out infinite; /* Logo melayang */
+}
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* --- FORM PANEL (KANAN) --- */
+.form-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #ffffff;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 578px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700; /* Lebih tebal */
+  font-size: 40px;
+  line-height: 1.2;
+  /* Gradient Text Modern */
+  background: linear-gradient(90deg, #0b4d68, #3f8686);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+form { width: 100%; }
+
+/* Tombol Google Modern */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 15px;
+  font-family: 'Alatsi', sans-serif;
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.google-btn:hover {
+  border-color: #0b4d68;
+  background-color: #f8fbff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.google-btn:active {
+  transform: scale(0.98);
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  margin: 30px 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #888;
+}
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+/* --- INPUT FIELDS MODERN --- */
+.form-group {
+  margin-bottom: 25px;
+  width: 100%;
+}
+.form-group label {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #013746;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+/* Efek Focus pada Label */
+.form-group:focus-within label {
+  color: #3f8686;
+}
+
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper .input-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  opacity: 0.5;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.input-wrapper:focus-within .input-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 55px; /* Lebih tinggi agar modern */
+  padding: 0 20px 0 60px; /* Padding kiri menyesuaikan icon */
+  background-color: #f9f9f9;
+  border: 2px solid transparent; /* Border transparan default */
+  border-radius: 15px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+/* Efek Focus & Hover Input */
+.input-wrapper input:hover {
+  background-color: #f0f4f8;
+}
+.input-wrapper input:focus {
+  background-color: #ffffff;
+  border-color: #3f8686; /* Warna aksen saat fokus */
+  box-shadow: 0 5px 15px rgba(63, 134, 134, 0.15);
+  outline: none;
+}
+.input-wrapper input::placeholder {
+  color: #aaa;
+  font-family: 'Poppins', sans-serif; /* Samakan font */
+}
+
+/* Password Fields Layout */
+.password-fields {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 1200px) {
+  .password-fields { flex-direction: column; gap: 0; }
+}
+
+/* ======================================================= */
+/* === TOMBOL DAFTAR (VERSI UPGRADE MODERN) === */
+/* ======================================================= */
+form .submit-btn {
+  width: 100%; /* Full width lebih rapi */
+  max-width: 400px;
+  height: 60px;
+  /* Gradient Background */
+  background: linear-gradient(135deg, #013746 0%, #3f8686 100%);
+  border-radius: 50px; /* Pill shape */
+  border: none;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  display: block;
+  margin: 40px auto 50px;
+  position: relative;
+  overflow: hidden;
+  /* Bayangan Keren */
+  box-shadow: 0 10px 20px rgba(1, 55, 70, 0.3);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Efek Kilau (Shine) saat Hover */
+form .submit-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+form .submit-btn:hover::after {
+  left: 100%;
+}
+
+form .submit-btn:hover {
+  transform: translateY(-3px); /* Naik sedikit */
+  box-shadow: 0 15px 25px rgba(1, 55, 70, 0.4);
+  filter: brightness(1.1);
+}
+
+form .submit-btn:active {
+  transform: translateY(2px) scale(0.98); /* Efek tekan */
+  box-shadow: 0 5px 10px rgba(1, 55, 70, 0.2);
+}
+
+/* ======================================================= */
+
+.terms-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 440px;
+  color: #666;
+}
+.terms-text a {
+  color: #3f8686;
+  font-weight: 600;
+  position: relative;
+}
+/* Garis bawah animasi pada link terms */
+.terms-text a::after {
+  content: '';
+  position: absolute;
+  width: 0; height: 2px;
+  bottom: -2px; left: 0;
+  background-color: #3f8686;
+  transition: width 0.3s;
+}
+.terms-text a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .signup-container { grid-template-columns: 1fr; }
+  .branding-panel { min-height: 300px; padding: 20px; }
+  .logo-image { width: 200px; height: auto; margin: 20px 0; }
+  .back-button { position: absolute; top: 20px; left: 20px; }
+}
+
+@media (max-width: 576px) {
+  .form-panel { padding: 30px 20px; }
+  .form-title { font-size: 28px; margin-bottom: 30px; }
+  .google-btn { font-size: 16px; }
+  .form-group label { font-size: 14px; }
+  form .submit-btn { font-size: 18px; height: 55px; }
+}

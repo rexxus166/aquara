@@ -1,0 +1,265 @@
+/* IMPORT FONT MODERN */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Zen+Antique+Soft&display=swap');
+
+:root {
+  --color-primary: #204949;
+  --color-secondary: #03212f;
+  --color-accent: #307b7b;
+  --color-accent-light: #4db6ac;
+  --color-text-light: #ffffff;
+  --color-text-dark: #1a1a1a;
+  --color-text-subtle: #f0f0f0;
+  --font-main: 'Poppins', sans-serif;
+  --transition-speed: 0.4s;
+}
+
+/* --- ANIMASI --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(77, 182, 172, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(77, 182, 172, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(77, 182, 172, 0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- RESET & GLOBAL --- */
+body { font-family: var(--font-main); overflow-x: hidden; }
+
+/* ---------------- HERO SECTION (EPIC) ---------------- */
+#hero {
+  position: relative;
+  /* Sesuaikan padding top agar tidak tertutup header */
+  padding-top: 150px; 
+  padding-bottom: 120px;
+  color: var(--color-text-light);
+  min-height: 90vh; /* Sedikit lebih responsif */
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: -1;
+  filter: brightness(0.65) contrast(1.1);
+  transition: transform 10s ease;
+}
+#hero:hover .hero-bg { transform: scale(1.05); }
+
+.hero-container {
+  display: flex; justify-content: space-between; align-items: center; gap: 40px;
+  animation: fadeInUp 1s ease-out;
+  position: relative; z-index: 2;
+}
+
+.hero-content-left { max-width: 650px; }
+
+.welcome-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 8px 24px;
+  font-size: 16px; font-weight: 600; letter-spacing: 1px;
+  color: var(--color-accent-light); margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  font-size: 60px; font-weight: 800; line-height: 1.1; margin-bottom: 24px;
+  /* Efek teks gradient */
+  background: linear-gradient(to right, #fff, #b2dfdb);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 18px; font-weight: 400; line-height: 1.6;
+  text-align: justify; margin-bottom: 32px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-logo-large {
+  width: 100%; max-width: 480px; height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+  animation: float 5s ease-in-out infinite reverse;
+}
+
+/* ---------------- FEATURES SECTION (3D CARDS) ---------------- */
+#features {
+  padding: 100px 0; background-color: #f4f7f6;
+  position: relative; z-index: 2;
+}
+/* Dekorasi background */
+#features::before {
+  content: ''; position: absolute; top: -100px; left: -100px; width: 400px; height: 400px;
+  background: rgba(48, 123, 123, 0.05); border-radius: 50%; z-index: 0;
+}
+
+.features-container { text-align: center; position: relative; z-index: 2; }
+
+.section-title {
+  color: var(--color-primary); font-size: 48px; font-weight: 800;
+  margin-bottom: 60px; position: relative; display: inline-block;
+}
+.section-title::after {
+  content: ''; display: block; width: 60%; height: 4px;
+  background: var(--color-accent); margin: 15px auto 0; border-radius: 2px;
+}
+
+.features-grid {
+  display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;
+}
+
+.feature-card {
+  background: white; /* Ganti warna solid primary jadi putih agar bersih */
+  border-radius: 30px;
+  padding: 40px 30px;
+  width: 350px;
+  /* Shadow & Transisi */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(0,0,0,0.03);
+  position: relative; overflow: hidden;
+  /* Flex layout */
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.feature-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px;
+  background: var(--color-accent); transform: scaleX(0); transition: 0.4s; transform-origin: left;
+}
+.feature-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+.feature-card:hover::before { transform: scaleX(1); }
+
+/* IKON FITUR (FIX AGAR MUNCUL) */
+.feature-icon {
+  width: 100px; height: 100px;
+  margin-bottom: 25px;
+  object-fit: contain; display: block;
+  transition: transform 0.4s ease;
+  /* Pastikan tidak ada filter aneh */
+}
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.feature-title {
+  font-size: 24px; font-weight: 700; margin-bottom: 16px;
+  color: var(--color-primary); /* Ubah jadi warna gelap karena background putih */
+}
+
+.feature-description {
+  font-size: 15px; font-weight: 400; line-height: 1.6;
+  text-align: center; color: #666;
+}
+
+
+/* ---------------- ARTICLES SECTION (GLASS DARK) ---------------- */
+#articles {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #1a3c3c 0%, #2d6666 100%);
+  position: relative; z-index: 1;
+}
+/* Pattern Overlay */
+#articles::after {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 30px 30px; opacity: 0.5; pointer-events: none;
+}
+
+.articles-container {
+  display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2;
+}
+
+.section-title-light {
+  color: var(--color-text-light); font-size: 48px; font-weight: 800;
+  margin-bottom: 60px; text-align: center;
+}
+
+.articles-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 30px; width: 100%; margin-bottom: 50px;
+}
+
+.article-card {
+  background: rgba(255, 255, 255, 0.05); /* Glass Effect */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  display: flex; gap: 20px; align-items: flex-start;
+  transition: all 0.3s;
+}
+.article-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.article-img {
+  width: 180px; height: 120px;
+  border-radius: 12px; object-fit: cover; flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.article-content {
+  flex-grow: 1; display: flex; flex-direction: column; height: 100%;
+}
+
+.article-content h3 {
+  font-size: 18px; font-weight: 700; line-height: 1.4;
+  margin-bottom: 10px; color: var(--color-accent-light); /* Judul jadi terang */
+  text-align: left;
+}
+
+.article-content p {
+  font-size: 13px; font-weight: 400; line-height: 1.6;
+  text-align: left; margin-bottom: 15px; flex-grow: 1;
+  color: #ddd; /* Teks deskripsi terang */
+}
+
+/* Tombol "Lihat Selengkapnya" (Versi Anggota) */
+.btn-more {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: white; color: var(--color-primary);
+  padding: 15px 40px; border-radius: 50px;
+  font-size: 18px; font-weight: 700;
+  transition: all 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  margin-top: 20px;
+}
+.btn-more:hover {
+  background: var(--color-accent-light); color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(77, 182, 172, 0.4);
+}
+.btn-more img {
+  width: 18px; height: auto; transition: 0.3s;
+}
+.btn-more:hover img {
+  transform: translateX(5px); filter: brightness(0) invert(1);
+}
+
+/* --- RESPONSIF --- */
+@media (max-width: 1024px) {
+  .hero-container { flex-direction: column; text-align: center; }
+  .hero-logo-large { max-width: 300px; margin-top: 40px; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 48px; }
+}
+
+@media (max-width: 768px) {
+  #hero { padding-top: 150px; padding-bottom: 80px; }
+  .hero-title { font-size: 36px; }
+  .section-title, .section-title-light { font-size: 32px; }
+  .article-card { flex-direction: column; }
+  .article-img { width: 100%; height: 180px; }
+}

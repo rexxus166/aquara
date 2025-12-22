@@ -1,0 +1,203 @@
+/* Admin CSS - Tema AQUARA (Perikanan Air Tawar) */
+/* Warna: #4ecdc4 (hijau toska), #1a5f5f (biru laut), #f8f9fa (putih), #03212F (abu gelap) */
+
+/* Reset dan Base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #03212F;
+}
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Navbar Atas (Fixed) */
+.navbar {
+    background-color: #1a5f5f !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #4ecdc4 !important;
+}
+
+.navbar-brand i {
+    color: #f8f9fa;
+}
+
+.nav-link {
+    color: #f8f9fa !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4ecdc4 !important;
+}
+
+/* Sidebar Kiri (Fixed, Responsif) */
+.sidebar {
+    width: 250px;
+    background-color: #1a5f5f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+    transition: width 0.3s ease;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar .nav-link {
+    color: #f8f9fa !important;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: #4ecdc4;
+    color: #03212F !important;
+    transform: translateX(5px);
+}
+
+.sidebar .nav-link i {
+    width: 20px;
+    text-align: center;
+}
+
+.sidebar .nav-item:last-child .nav-link {
+    border-bottom: none;
+}
+
+/* Konten Utama (Offset untuk Navbar dan Sidebar Fixed) */
+#content {
+    margin-left: 250px;
+    margin-top: 70px; /* Tinggi navbar fixed */
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    background-color: #f8f9fa;
+}
+
+/* Responsif: Mobile - Collapse Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+    
+    #content {
+        margin-left: 0;
+    }
+    
+    .sidebar.active {
+        width: 250px;
+    }
+    
+    #content.active {
+        margin-left: 250px;
+    }
+}
+
+/* Card dan Tabel Custom */
+.card {
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.card-header {
+    background-color: #1a5f5f;
+    color: #f8f9fa;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.table-dark {
+    background-color: #1a5f5f;
+    color: #f8f9fa;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(78, 205, 196, 0.1); /* Hijau toska ringan */
+}
+
+.btn-primary {
+    background-color: #4ecdc4;
+    border-color: #4ecdc4;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1a5f5f;
+    border-color: #1a5f5f;
+    transform: translateY(-2px);
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Badge Status (untuk Konsultasi) */
+.badge {
+    font-size: 0.8em;
+    padding: 0.5em 0.8em;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+    color: #03212F;
+}
+
+.badge-success {
+    background-color: #198754;
+    color: #f8f9fa;
+}
+
+/* Modal Custom */
+.modal-content {
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    background-color: #1a5f5f;
+    color: #f8f9fa;
+    border-radius: 15px 15px 0 0;
+}
+
+/* Search Bar */
+.form-control:focus {
+    border-color: #4ecdc4;
+    box-shadow: 0 0 0 0.2rem rgba(78, 205, 196, 0.25);
+}
+
+/* Efek Lembut Umum */
+a, button {
+    transition: all 0.3s ease;
+}
+
+h2, h5 {
+    color: #03212F;
+}
+
+/* Grafik Chart.js (Opsional) */
+#monthlyChart {
+    max-height: 300px;
+}

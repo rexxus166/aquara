@@ -1,0 +1,484 @@
+:root {
+  --color-primary: #0f4a4a;
+  --color-primary-dark: #1f4646;
+  --color-secondary: #013746;
+  --color-footer-bg: #03212f;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --font-main: 'Poppins', sans-serif;
+  --font-logo: 'Zen Antique Soft', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.container {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  overflow: hidden;
+}
+
+
+.site-header {
+  background: linear-gradient(154deg, #0f4a4a 0%, #1f4646 258.06%);
+  box-shadow: 0px -19px 62.8px 4px #0b4d68;
+  padding: 19px 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 77px;
+  height: 80px;
+}
+
+.logo-text {
+  font-family: var(--font-logo);
+  font-size: 23.7px;
+  color: var(--color-white);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 33px;
+}
+
+.main-nav a {
+  font-size: 19.8px;
+  font-weight: 600;
+  color: var(--color-white);
+  transition: opacity 0.3s;
+}
+
+.main-nav a:hover {
+  opacity: 0.8;
+  color: #4ecdc4;
+}
+
+.btn-login {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+  font-size: 22.7px;
+  font-weight: 600;
+  padding: 6px 39px;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #f0f0f0;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 74, 74, 0.3);
+}
+
+@media (max-width: 1200px) {
+  .main-nav {
+    display: none; /* Simple hide for mobile, a real project would use a hamburger menu */
+  }
+  .header-container {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        display: none;
+    }
+    .btn-login {
+        padding: 4px 20px;
+        font-size: 18px;
+    }
+}
+
+
+
+.hero-section {
+  background-color: rgba(35, 128, 128, 0.41);
+  padding: 79px 0;
+  text-align: center;
+}
+
+.hero-title {
+  color: var(--color-white);
+  font-size: 65px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 50px 0;
+  }
+  .hero-title {
+    font-size: 48px;
+  }
+}
+
+
+
+.articles-section {
+  padding-top: 75px;
+  padding-bottom: 112px;
+  background-color: var(--color-white);
+}
+
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 64px 50px;
+}
+
+.article-card {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-image-container {
+  position: relative;
+  margin-bottom: 12px; /* Approximate spacing */
+}
+
+.card-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 13px;
+}
+
+.card-tag {
+  position: absolute;
+  top: 212px; /* (image height 260) - (tag height 38) - (bottom offset 10) */
+  left: 10px;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  padding: 7px 11px;
+  border-radius: 13.4px;
+  font-size: 18.1px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.5;
+  min-width: 125px;
+}
+
+.card-content {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.card-title {
+  font-size: 18.1px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: justify;
+  min-height: 80px; /* To align rows */
+}
+
+.card-excerpt {
+  font-size: 14.2px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: justify;
+  flex-grow: 1;
+}
+
+.card-meta {
+  font-size: 16.8px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.card-meta strong {
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .articles-section {
+    padding: 50px 20px;
+  }
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+
+
+.cta-section {
+  padding: 55px 0;
+}
+
+.cta-section .container {
+  background: linear-gradient(0deg, rgba(35, 128, 128, 0) 0%, #214949 130.18%);
+  border-radius: 42px;
+  padding: 55px 111px;
+}
+
+.cta-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.cta-title {
+  color: var(--color-white);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.5;
+  flex-basis: 60%;
+}
+
+.btn-cta {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  font-size: 32px;
+  font-weight: 600;
+  padding: 24px 44px;
+  border-radius: 13px;
+  text-align: center;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+}
+
+.btn-cta:hover {
+  background-color: #024a5f;
+}
+
+@media (max-width: 1024px) {
+  .cta-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px;
+  }
+  .cta-title {
+    font-size: 32px;
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-title {
+    font-size: 24px;
+  }
+  .btn-cta {
+    font-size: 24px;
+    padding: 16px 32px;
+  }
+}
+
+
+
+.site-footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-white);
+  padding-top: 64px;
+  padding-bottom: 20px;
+  border-radius: 27px 27px 0 0;
+  margin-top: -27px; /* Overlap with previous section */
+  position: relative;
+  z-index: 1;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-heading {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 29px;
+}
+
+.footer-contact {
+  max-width: 522px;
+}
+
+.footer-logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 129px;
+  height: 133px;
+  margin-bottom: 10px;
+}
+
+.footer-address {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.social-icons {
+  display: flex;
+  gap: 23px;
+}
+
+.social-icons img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 2px solid rgba(255, 255, 255, 0.7);
+  padding-top: 22px;
+  text-align: center;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-contact, .footer-social {
+    max-width: 100%;
+  }
+  .footer-logo-group {
+    align-items: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+
+/* Tambahkan kode CSS ini di BAWAH bagian .article-card yang sudah ada */
+
+/* Update article-card untuk efek hover */
+.article-card {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Efek hover pada card */
+.article-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(15, 74, 74, 0.15);
+}
+
+/* Update card-image untuk efek zoom */
+.card-image {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 13px;
+  transition: transform 0.3s ease;
+}
+
+/* Efek zoom pada gambar saat hover card */
+.article-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Update card-image-container untuk overflow hidden */
+.card-image-container {
+  position: relative;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border-radius: 13px;
+}
+
+/* Efek perubahan warna title saat hover */
+.article-card:hover .card-title {
+  color: var(--color-primary);
+}
+
+/* Update card-title untuk transition */
+.card-title {
+  font-size: 18.1px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: justify;
+  min-height: 80px;
+  transition: color 0.3s ease;
+}
+
+.main-nav a {
+  color: #ffffff;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.main-nav a:hover {
+  color: #7fdad1; /* toska hover */
+}
+
+.main-nav a.active {
+  color: #7fdad1; /* toska AQUARA */
+  font-weight: 700;
+}
+
+.main-nav a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #2fb8ac,
+    #7fdad1
+  );
+  border-radius: 2px;
+}

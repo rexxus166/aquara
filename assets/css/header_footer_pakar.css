@@ -1,0 +1,214 @@
+/* ========== HEADER & FOOTER GLOBAL STYLE ========== */
+:root {
+  --color-primary: #0f4a4a;
+  --color-primary-dark: #1f4646;
+  --color-secondary: #013746;
+  --color-footer-bg: #03212f;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --font-main: 'Poppins', sans-serif;
+  --font-logo: 'Zen Antique Soft', serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== HEADER ========== */
+.site-header {
+  background: linear-gradient(154deg, #0f4a4a 0%, #1f4646 258.06%);
+  box-shadow: 0px -19px 62.8px 4px #0b4d68;
+  padding: 19px 0;
+
+  /* === PERUBAHAN UNTUK HEADER STICKY === */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Memastikan header di atas konten lain */
+  /* === AKHIR PERUBAHAN === */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 77px;
+  height: 80px;
+}
+
+.logo-text {
+  font-family: var(--font-logo);
+  font-size: 23.7px;
+  color: var(--color-white);
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 33px;
+}
+
+.main-nav a {
+  font-size: 19.8px;
+  font-weight: 600;
+  color: var(--color-white);
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.main-nav a:hover {
+  opacity: 0.8;
+  color: #4ecdc4;
+}
+
+.btn-login {
+  background-color: var(--color-white);
+  color: var(--color-primary-dark);
+  font-size: 22.7px;
+  font-weight: 600;
+  padding: 6px 39px;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #f0f0f0;
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 74, 74, 0.3);
+}
+
+/* RESPONSIVE HEADER */
+@media (max-width: 1200px) {
+  .main-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    display: none;
+  }
+  .btn-login {
+    padding: 4px 20px;
+    font-size: 18px;
+  }
+}
+
+/* ========== FOOTER ========== */
+.site-footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-white);
+  padding-top: 64px;
+  padding-bottom: 20px;
+  border-radius: 27px 27px 0 0;
+  margin-top: -27px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-heading {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 29px;
+}
+
+.footer-contact {
+  max-width: 522px;
+}
+
+.footer-logo-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 129px;
+  height: 133px;
+  margin-bottom: 10px;
+}
+
+.footer-address {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.social-icons {
+  display: flex;
+  gap: 23px;
+}
+
+.social-icons img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+.footer-bottom {
+  border-top: 2px solid rgba(255, 255, 255, 0.7);
+  padding-top: 22px;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* RESPONSIVE FOOTER */
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-logo-group {
+    align-items: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}

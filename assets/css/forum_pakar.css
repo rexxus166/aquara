@@ -1,0 +1,544 @@
+/* forum_pakar.css */
+
+.forum-section {
+    padding: 60px 0 100px;
+    background-color: var(--background-light);
+}
+
+/* ========== FORUM HEADER ========== */
+.forum-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+}
+
+.forum-info {
+    flex: 1;
+}
+
+.forum-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #275e5e;
+    margin-bottom: 15px;
+}
+
+.forum-description {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.btn-buat-pertanyaan {
+    background-color: #60cece;
+    color: var(--text-light);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-buat-pertanyaan i {
+    font-size: 22px;
+}
+
+.btn-buat-pertanyaan:hover {
+    background-color: #4db8b8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== FILTER SECTION ========== */
+.forum-filter {
+    margin-bottom: 30px;
+}
+
+.filter-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 2px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn i {
+    font-size: 18px;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: rgba(63, 134, 134, 0.05);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+/* ========== FORUM POSTS ========== */
+.forum-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.forum-post {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.forum-post:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.post-avatar {
+    flex-shrink: 0;
+}
+
+.post-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0;
+}
+
+.post-content {
+    flex: 1;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.post-author {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.post-role {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: var(--text-muted);
+    background-color: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.post-role i {
+    font-size: 16px;
+}
+
+.post-question {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.post-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.stat-item i {
+    font-size: 16px;
+    color: var(--primary-color);
+}
+
+.post-time {
+    font-size: 14px;
+    color: #999;
+    margin-left: auto;
+}
+
+/* ========== PAGINATION ========== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination-btn {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 2px solid #ddd;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: rgba(63, 134, 134, 0.05);
+}
+
+.pagination-btn.active {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-color: var(--primary-color);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn i {
+    font-size: 14px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .forum-header {
+        flex-direction: column;
+    }
+
+    .btn-buat-pertanyaan {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .forum-section {
+        padding: 40px 0 60px;
+    }
+
+    .forum-header {
+        padding: 20px;
+    }
+
+    .forum-title {
+        font-size: 24px;
+    }
+
+    .forum-description {
+        font-size: 14px;
+    }
+
+    .btn-buat-pertanyaan {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .filter-title {
+        font-size: 20px;
+    }
+
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .filter-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .forum-post {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .post-avatar img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .post-author {
+        font-size: 16px;
+    }
+
+    .post-question {
+        font-size: 14px;
+    }
+
+    .post-stats {
+        gap: 15px;
+    }
+
+    .stat-item {
+        font-size: 12px;
+    }
+
+    .post-time {
+        font-size: 12px;
+        width: 100%;
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .pagination-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+}
+
+/* ====== ANIMASI & MODAL ====== */
+.fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* ====== MODAL STYLE ====== */
+.custom-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.custom-modal-overlay.show {
+  opacity: 1;
+}
+
+.custom-modal {
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+}
+
+.custom-modal-overlay.show .custom-modal {
+  transform: translateY(0);
+}
+
+.custom-modal h2 {
+  color: #275e5e;
+  margin-bottom: 15px;
+}
+
+.custom-modal textarea {
+  width: 100%;
+  height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-cancel,
+.btn-submit {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.btn-cancel {
+  background: #ccc;
+  color: #333;
+}
+
+.btn-submit {
+  background: #60cece;
+  color: white;
+}
+
+.btn-submit:hover {
+  background: #3f8686;
+}
+
+
+
+/* === FIX: tombol interaktif forum pakar === */
+
+/* Pastikan semua tombol terlihat jelas */
+button,
+.btn-buat-pertanyaan,
+.filter-btn,
+.pagination-btn,
+.btn-submit-comment,
+.btn-cancel-comment,
+.submit-new-question,
+.cancel-new-question,
+.close-modal {
+    color: #fff;
+    background-color: var(--primary-color, #3f8686);
+    border: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Tombol hover lebih gelap sedikit */
+button:hover,
+.btn-buat-pertanyaan:hover,
+.filter-btn:hover,
+.pagination-btn:hover,
+.btn-submit-comment:hover,
+.btn-cancel-comment:hover,
+.submit-new-question:hover,
+.cancel-new-question:hover,
+.close-modal:hover {
+    background-color: #2d6b6b !important;
+    color: #fff !important;
+}
+
+/* Tombol non-aktif terlihat samar tapi tetap tampak */
+button:disabled,
+.pagination-btn:disabled {
+    background-color: #ccc !important;
+    color: #666 !important;
+}
+
+/* Perbaiki visibilitas ikon tombol */
+button i,
+.btn-buat-pertanyaan i,
+.filter-btn i,
+.pagination-btn i {
+    color: #fff !important;
+    font-size: 18px;
+}
+
+/* Pastikan modal (buat pertanyaan) di atas semua elemen */
+.aq-modal {
+    z-index: 9999 !important;
+}
+
+/* Tambahkan warna default bila variabel CSS belum terdefinisi */
+:root {
+    --primary-color: #3f8686;
+    --text-dark: #222;
+    --text-light: #fff;
+    --background-light: #f8f8f8;
+    --text-muted: #777;
+    --card-bg: #ffffff;
+}
+
+.main-nav a {
+    color: #ffffff;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.main-nav a:hover {
+  color: #7fdad1; /* toska hover */
+}
+
+.main-nav a.active {
+    color: #7fdad1; /* toska AQUARA */
+    font-weight: 700;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #2fb8ac,
+        #7fdad1
+    );
+    border-radius: 2px;
+}

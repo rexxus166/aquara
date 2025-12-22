@@ -1,0 +1,500 @@
+/* konsultasi_pengunjung.css */
+
+.konsultasi-section {
+    padding: 80px 0 120px;
+    background-color: var(--background-light);
+}
+
+/* ========== INTRO SECTION ========== */
+.konsultasi-intro {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.intro-icon {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.intro-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #275e5e;
+    margin-bottom: 20px;
+}
+
+.intro-description {
+    font-size: 20px;
+    color: #296363;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ========== SECTION SUBTITLE ========== */
+.section-subtitle {
+    font-size: 36px;
+    font-weight: 700;
+    color: #275e5e;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* ========== AHLI SECTION ========== */
+.ahli-section {
+    margin-bottom: 80px;
+}
+
+.ahli-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.ahli-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ahli-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.ahli-avatar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.ahli-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+.ahli-specialty {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.ahli-experience {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.btn-konsultasi {
+    background-color: rgba(63, 134, 134, 0.69);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.btn-konsultasi:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+/* ========== FORM KONSULTASI ========== */
+.form-konsultasi-section {
+    margin-top: 60px;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.konsultasi-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+}
+
+.form-group input[readonly],
+.form-group select[disabled],
+.form-group textarea[readonly] {
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: #307b7b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .ahli-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .konsultasi-section {
+        padding: 60px 0 80px;
+    }
+
+    .intro-title {
+        font-size: 36px;
+    }
+
+    .intro-description {
+        font-size: 18px;
+    }
+
+    .section-subtitle {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .ahli-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .form-container {
+        padding: 25px;
+    }
+
+    .form-group label {
+        font-size: 16px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+}
+
+/* ========== RIWAYAT KONSULTASI (TAMBAHAN) ========== */
+.riwayat-konsultasi-section {
+    margin-top: 60px;
+}
+
+.riwayat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.riwayat-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.riwayat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.riwayat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.riwayat-topik {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Badge Status */
+.status-badge {
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.status-pending { background: #fff3cd; color: #856404; }
+.status-dijawab { background: #d4edda; color: #155724; }
+.status-selesai { background: #d1ecf1; color: #0c5460; }
+
+.riwayat-body p {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 15px;
+}
+
+.riwayat-pertanyaan {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-style: italic;
+    color: #666;
+    border-left: 4px solid var(--primary-color);
+}
+
+.riwayat-jawaban {
+    background: #eefcfc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border: 1px solid #b8e6e6;
+}
+
+.riwayat-jawaban h5 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* TOMBOL AKSI RIWAYAT */
+.riwayat-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-riwayat {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 14px;
+    color: white;
+}
+
+.btn-detail {
+    background-color: var(--primary-color);
+}
+.btn-detail:hover {
+    background-color: #2c6666;
+}
+
+.btn-batal {
+    background-color: #e74c3c;
+}
+.btn-batal:hover {
+    background-color: #c0392b;
+}
+
+/* --- JURUS PAKSA MUNCULKAN TOMBOL RIWAYAT --- */
+
+/* 1. Pastikan container tombol terlihat */
+.riwayat-actions {
+    display: flex !important;
+    gap: 10px !important;
+    margin-top: 15px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 2. Paksa SEMUA tombol di dalam riwayat agar punya warna dasar */
+.riwayat-container button {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    color: white !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+}
+
+/* 3. Beri warna spesifik (paksa dengan !important) */
+/* Tombol Detail (biasanya warna teal/hijau utama) */
+.riwayat-container .btn-detail,
+.riwayat-container button[onclick*="Lihat"] { 
+    background-color: #3f8686 !important; 
+}
+
+/* Tombol Batal (biasanya warna merah) */
+.riwayat-container .btn-batal,
+.riwayat-container button[onclick*="Batal"] { 
+    background-color: #e74c3c !important; 
+}
+
+/* --- PAKSA MUNCULKAN TOMBOL DI DALAM MODAL --- */
+#detailModal button,            /* ID umum untuk modal */
+.modal-content button,          /* Class umum konten modal */
+.modal-footer button {          /* Class umum footer modal */
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background-color: #3f8686 !important; /* Warna Hijau Teal */
+    color: white !important;
+    padding: 12px 30px !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-weight: bold !important;
+    margin: 20px auto 0 !important; /* Jarak atas 20px, tengah secara horizontal */
+    cursor: pointer !important;
+}
+
+/* Khusus tombol 'X' di pojok atas jangan ikut berubah jadi hijau */
+.modal-content .close,
+.modal-header .close-btn {
+    background-color: transparent !important;
+    color: #999 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 28px !important;
+}
+
+/* --- PERBAIKAN JARAK TEKS (SPACING FIX) --- */
+
+/* 1. Jarak di Kartu Riwayat */
+.riwayat-card {
+    padding: 25px !important; /* Tambah padding dalam kartu */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar elemen di dalam kartu */
+}
+
+.riwayat-header {
+    margin-bottom: 10px !important;
+}
+
+.riwayat-pertanyaan, 
+.riwayat-jawaban {
+    margin: 15px 0 !important; /* Jarak atas bawah untuk kotak pertanyaan/jawaban */
+    line-height: 1.6 !important; /* Jarak antar baris teks agar tidak terlalu rapat */
+}
+
+/* 2. Jarak di dalam Modal Detail */
+.detail-modal > div { /* Target kotak putih modal */
+    padding: 40px !important; /* Padding lebih besar biar lega */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Jarak antar bagian di dalam modal */
+}
+
+.detail-modal h3 {
+    margin-bottom: 25px !important; /* Jarak judul modal ke konten di bawahnya */
+}
+
+.detail-modal label {
+    margin-bottom: 8px !important; /* Jarak label ke teks isinya */
+    display: block !important;
+}
+
+.detail-modal p {
+    margin-bottom: 0 !important; /* Reset margin bawah paragraf karena sudah ada gap dari parent */
+    line-height: 1.6 !important;
+}
+
+.main-nav a {
+    color: #ffffff;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.main-nav a:hover {
+  color: #7fdad1; /* toska hover */
+}
+
+.main-nav a.active {
+  color: #7fdad1; /* toska AQUARA */
+    font-weight: 700;
+}
+
+.main-nav a.active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #2fb8ac,
+        #7fdad1
+    );
+    border-radius: 2px;
+}
