@@ -19,7 +19,7 @@ if (isset($_SESSION['role_id'])) {
 
 // 3. Tentukan Foto Profil
 $foto_user = $_SESSION['foto_profil'] ?? null;
-$path_foto_default = "/aquara/assets/img/aquara/profil.png"; // Foto default Anda
+$path_foto_default = "/assets/img/aquara/profil.png"; // Foto default Anda
 
 if (!empty($foto_user)) {
     // Asumsi foto upload disimpan di folder ini
@@ -29,9 +29,9 @@ if (!empty($foto_user)) {
 }
 ?>
 
-<link rel="stylesheet" href="/aquara/assets/css/header_footer_pakar.css">
-<link rel="stylesheet" href="/aquara/assets/css/artikel_pakar_custom.css">
-<link rel="stylesheet" href="/aquara/assets/css/artikel.css">
+<link rel="stylesheet" href="/assets/css/header_footer_pakar.css">
+<link rel="stylesheet" href="/assets/css/artikel_pakar_custom.css">
+<link rel="stylesheet" href="/assets/css/artikel.css">
 
 <style>
   .user-profile {
@@ -78,7 +78,7 @@ if (!empty($foto_user)) {
 <header class="site-header">
   <div class="container header-container">
     <a href="index_anggota.php?page=home_anggota" class="logo">
-      <img src="/aquara/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
+      <img src="/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
       <span class="logo-text">AQUARA</span>
     </a>
 
@@ -101,7 +101,7 @@ if (!empty($foto_user)) {
       
       <img src="<?php echo $path_foto_tampil; ?>" alt="User Avatar" class="user-avatar">
       
-      <img src="/aquara/assets/img/aquara/dropdown.png" alt="Dropdown" class="dropdown-arrow">
+      <img src="/assets/img/aquara/dropdown.png" alt="Dropdown" class="dropdown-arrow">
 
       <div class="dropdown-menu">
         <a href="index_anggota.php?page=profil_anggota">Profil Saya</a>

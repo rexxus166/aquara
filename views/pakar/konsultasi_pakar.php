@@ -111,7 +111,7 @@ $stmt->close();
                         <?php
                         // Path foto profil
                         $foto_anggota = $row['foto_anggota'] ?? null;
-                        $path_foto_anggota = (!empty($foto_anggota) && file_exists($_SERVER['DOCUMENT_ROOT'] . "/aquara/uploads/profil/" . $foto_anggota)) ? "/aquara/uploads/profil/" . htmlspecialchars($foto_anggota) : "/aquara/assets/img/profil/default_profile.png";
+                        $path_foto_anggota = (!empty($foto_anggota) && file_exists($_SERVER['DOCUMENT_ROOT'] . "/aquara/uploads/profil/" . $foto_anggota)) ? "/aquara/uploads/profil/" . htmlspecialchars($foto_anggota) : "/assets/img/profil/default_profile.png";
                         ?>
                         <img src="<?php echo $path_foto_anggota; ?>" alt="Profil" 
                         class="rounded-circle border me-3" 

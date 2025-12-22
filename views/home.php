@@ -29,17 +29,17 @@ $this->layout('layout', ['activeMenu' => $activeMenu]);
     <h2 class="section-title">Fitur AQUARA</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <img src="/aquara/assets/img/aquara/forum_logo_fix.jpg" alt="Forum Icon" class="feature-icon">
+        <img src="/assets/img/aquara/forum_logo_fix.jpg" alt="Forum Icon" class="feature-icon">
         <h3 class="feature-title">FORUM</h3>
         <p class="feature-description">Bergabunglah dengan komunitas peternak ikan air tawar untuk sharing tips</p>
       </div>
       <div class="feature-card">
-        <img src="/aquara/assets/img/aquara/logo_konsultasi_fix.png" alt="Konsultasi Icon" class="feature-icon">
+        <img src="/assets/img/aquara/logo_konsultasi_fix.png" alt="Konsultasi Icon" class="feature-icon">
         <h3 class="feature-title">KONSULTASI</h3>
         <p class="feature-description">Dapatkan konsultasi langsung dari para ahli perikanan berpengalaman</p>
       </div>
       <div class="feature-card">
-        <img src="/aquara/assets/img/aquara/logo_kalkulator_fix.png" alt="Kalkulator Icon" class="feature-icon">
+        <img src="/assets/img/aquara/logo_kalkulator_fix.png" alt="Kalkulator Icon" class="feature-icon">
         <h3 class="feature-title">KALKULATOR</h3>
         <p class="feature-description">Hitung keuntungan dan analisis bisnis perikanan Anda dengan mudah</p>
       </div>

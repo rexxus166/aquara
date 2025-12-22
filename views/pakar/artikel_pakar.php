@@ -8,7 +8,7 @@ $artikelList = getAllArtikelPakar();
 
 <?php include '../../includes/pakar/header_pakar.php'; ?>
 
-<link rel="stylesheet" href="/aquara/assets/css/artikel.css">
+<link rel="stylesheet" href="/assets/css/artikel.css">
 
 <section id="hero" class="hero-section">
   <div class="container">

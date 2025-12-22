@@ -21,7 +21,7 @@ if ($data) {
                 "nama" => $data['nama'],
                 "email" => $data['email'],
                 "role_id" => $data['role_id'],
-                "foto_url" => "http://192.168.43.63:8080/aquara/uploads/profil/" . ($data['foto_profil'] ? $data['foto_profil'] : 'default.png')
+                "foto_url" => "https://aquara.miomidev.com/uploads/profil/" . ($data['foto_profil'] ? $data['foto_profil'] : 'default.png')
             ]
         ]);
     } else {
@@ -30,4 +30,3 @@ if ($data) {
 } else {
     echo json_encode(["success" => false, "message" => "Email tidak ditemukan"]);
 }
-?>

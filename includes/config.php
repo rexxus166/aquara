@@ -4,16 +4,16 @@
   Konfigurasi koneksi database
 */
 
-define('DB_HOST', 'localhost');    // Server database Anda
-define('DB_USERNAME', 'root'); // Username database Anda
-define('DB_PASSWORD', '');     // Password database Anda
-define('DB_NAME', 'aquara');  // <-- DIUBAH: Sesuai file .sql Anda
+define('DB_HOST', 'localhost');
+define('DB_USERNAME', 'iqbfbjty_aquara');
+define('DB_NAME', 'iqbfbjty_aquara');
+define('DB_PASSWORD', 'Gz*N~)dSB9.?2;jC');
+define('BASE_URL', 'https://aquara.miomidev.com');
 
 // Membuat koneksi
 $conn = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 // Cek koneksi
 if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+  die("Koneksi gagal: " . $conn->connect_error);
 }
-?>

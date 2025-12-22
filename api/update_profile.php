@@ -8,7 +8,7 @@ header("Content-Type: application/json; charset=UTF-8");
 $id = $_POST['id'];
 $nama = $_POST['nama'];
 $email = $_POST['email'];
-$password = $_POST['password']; 
+$password = $_POST['password'];
 
 // 1. UPDATE DATA TEKS (Nama & Email)
 $query = "UPDATE users SET nama='$nama', email='$email' WHERE id='$id'";
@@ -16,7 +16,7 @@ mysqli_query($koneksi, $query);
 
 // 2. JIKA ADA PASSWORD BARU (Wajib di-Hash agar bisa Login)
 if (!empty($password)) {
-    $passHash = password_hash($password, PASSWORD_DEFAULT); 
+    $passHash = password_hash($password, PASSWORD_DEFAULT);
     $queryPass = "UPDATE users SET password='$passHash' WHERE id='$id'";
     mysqli_query($koneksi, $queryPass);
 }
@@ -36,13 +36,12 @@ if (isset($_FILES['foto'])) {
     if (move_uploaded_file($tmpName, $folder)) {
         $queryFoto = "UPDATE users SET foto_profil='$namaFile' WHERE id='$id'";
         mysqli_query($koneksi, $queryFoto);
-        
+
         // Masukkan URL foto baru ke dalam respon JSON
         // Sesuaikan IP ini dengan IP Laptop Anda
-        $response['foto_url'] = "http://192.168.43.63:8080/aquara/uploads/profil/" . $namaFile;
+        $response['foto_url'] = "https://aquara.miomidev.com/uploads/profil/" . $namaFile;
     }
 }
 
 // Kirim Respon Final ke Flutter
 echo json_encode($response);
-?>

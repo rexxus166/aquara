@@ -1,10 +1,10 @@
 <?php
-require_once 'koneksi.php'; 
+require_once 'koneksi.php';
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 // Kita butuh ID user yang sedang login untuk cek "is_liked"
-$current_user_id = $_GET['user_id'] ?? '0'; 
+$current_user_id = $_GET['user_id'] ?? '0';
 
 // QUERY CANGGIH: Join User + Hitung Komentar + Hitung Like + Cek Status Like
 $sql = "SELECT 
@@ -21,10 +21,10 @@ $result = $koneksi->query($sql);
 $forums = array();
 
 // GANTI IP SESUAI LAPTOP KAMU
-$base_url = "http://192.168.43.63:8080/aquara"; 
+$base_url = "https://aquara.miomidev.com";
 
 if ($result && $result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+    while ($row = $result->fetch_assoc()) {
         // Fix URL Foto & Gambar (Sama seperti sebelumnya)
         if (!empty($row['foto_profil'])) {
             $row['foto_profil_url'] = $base_url . "/uploads/profil/" . $row['foto_profil'];
@@ -37,10 +37,9 @@ if ($result && $result->num_rows > 0) {
         } else {
             $row['gambar_url'] = null;
         }
-        
+
         $forums[] = $row;
     }
 }
 
 echo json_encode($forums);
-?>

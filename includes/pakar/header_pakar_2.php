@@ -15,7 +15,7 @@ if (isset($_SESSION['role_id'])) {
 
 // 3. Tentukan Foto Profil
 $foto_user = $_SESSION['foto_profil'] ?? null;
-$path_foto_default = "/aquara/assets/img/profil/default_profile.png"; 
+$path_foto_default = "/assets/img/profil/default_profile.png"; 
 
 if (!empty($foto_user) && file_exists($_SERVER['DOCUMENT_ROOT'] . "/aquara/uploads/profil/" . $foto_user)) {
     $path_foto_tampil = "/aquara/uploads/profil/" . htmlspecialchars($foto_user);
@@ -27,7 +27,7 @@ if (!empty($foto_user) && file_exists($_SERVER['DOCUMENT_ROOT'] . "/aquara/uploa
 <header class="site-header">
     <div class="container header-container">
         <a href="index_pakar.php?page=home_pakar" class="logo">
-            <img src="/aquara/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
+            <img src="/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
             <span class="logo-text">AQUARA</span>
         </a>
 
@@ -50,7 +50,7 @@ if (!empty($foto_user) && file_exists($_SERVER['DOCUMENT_ROOT'] . "/aquara/uploa
             
             <img src="<?php echo $path_foto_tampil; ?>" alt="User Avatar" class="user-avatar">
             
-            <img src="/aquara/assets/img/aquara/dropdown.png" alt="Dropdown Arrow" class="dropdown-arrow">
+            <img src="/assets/img/aquara/dropdown.png" alt="Dropdown Arrow" class="dropdown-arrow">
 
             <div class="dropdown-menu">
                 <a href="index_pakar.php?page=profil_pakar">Profil Saya</a>

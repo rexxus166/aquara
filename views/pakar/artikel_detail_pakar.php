@@ -21,7 +21,7 @@ $artikelTerkait = getArtikelPakarTerkait($id, 3);
 include '../../includes/pakar/header_pakar.php';
 ?>
 
-<link rel="stylesheet" href="/aquara/assets/css/artikel_detail.css">
+<link rel="stylesheet" href="/assets/css/artikel_detail.css">
 
 <section class="breadcrumb-section">
   <div class="container">

@@ -10,7 +10,7 @@ $result = $koneksi->query($sql);
 
 $events = array();
 // --- PENTING: GANTI IP SESUAI LAPTOP KAMU ---
-$base_url = "http://192.168.43.63:8080/aquara"; 
+$base_url = "https://aquara.miomidev.com";
 
 if ($result) {
     while ($row = $result->fetch_assoc()) {
@@ -28,7 +28,7 @@ if ($result) {
         $row['tgl_display'] = date('d', strtotime($row['tanggal_mulai']));
         // Ambil Bulan (contoh: DES)
         $row['bln_display'] = strtoupper(date('M', strtotime($row['tanggal_mulai'])));
-        
+
         // 3. Link Pendaftaran (Pastikan tidak null)
         if (empty($row['link_pendaftaran'])) {
             $row['link_pendaftaran'] = "";
@@ -39,4 +39,3 @@ if ($result) {
 }
 
 echo json_encode($events);
-?>

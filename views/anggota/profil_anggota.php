@@ -7,7 +7,7 @@ $email_user = $_SESSION['email'] ?? 'Tidak ada email';
 
 // Ambil path foto dari session
 $foto_user = $_SESSION['foto_profil'] ?? null;
-$path_foto_default = "/aquara/assets/img/aquara/profil.png";
+$path_foto_default = "/assets/img/aquara/profil.png";
 
 if (!empty($foto_user)) {
     $path_foto_tampil = "/aquara/uploads/profil/" . htmlspecialchars($foto_user);
@@ -22,10 +22,10 @@ if (!empty($foto_user)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil Saya - AQUARA</title>
     
-    <link rel="stylesheet" href="/aquara/assets/css/header_footer_pakar.css">
-    <link rel="stylesheet" href="/aquara/assets/css/artikel_pakar_custom.css">
+    <link rel="stylesheet" href="/assets/css/header_footer_pakar.css">
+    <link rel="stylesheet" href="/assets/css/artikel_pakar_custom.css">
     
-    <link rel="stylesheet" href="/aquara/assets/css/anggota/profil_anggota.css">
+    <link rel="stylesheet" href="/assets/css/anggota/profil_anggota.css">
 </head>
 <body>
 

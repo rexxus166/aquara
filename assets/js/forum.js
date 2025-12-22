@@ -24,7 +24,7 @@ let forumData = [
 ];
 
 let currentPage = 1;
-let currentUserAvatar = '/aquara/assets/img/aquara/profil.png';
+let currentUserAvatar = '/assets/img/aquara/profil.png';
 let currentUserName = 'Aeri Uciha';
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -15,9 +15,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     // Tambahkan URL lengkap untuk gambar agar bisa diakses di HP
     // Ganti 192.168.x.x dengan IP Laptop kamu jika pakai HP asli
     // Ganti 10.0.2.2 jika pakai Emulator Android Studio
-    $row['gambar_url'] = "http://192.168.43.63:8080/aquara/uploads/articles/" . $row['gambar']; 
+    $row['gambar_url'] = "https://aquara.miomidev.com/uploads/articles/" . $row['gambar'];
     $response[] = $row;
 }
 
 echo json_encode($response);
-?>

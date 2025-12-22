@@ -24,7 +24,7 @@ $result = $stmt->get_result();
 
 $comments = array();
 // --- GANTI IP DI BAWAH INI SESUAI LAPTOP ---
-$base_url = "http://192.168.43.63:8080/aquara"; 
+$base_url = "https://aquara.miomidev.com";
 
 while ($row = $result->fetch_assoc()) {
     if (!empty($row['foto_profil'])) {
@@ -36,4 +36,3 @@ while ($row = $result->fetch_assoc()) {
 }
 
 echo json_encode($comments);
-?>

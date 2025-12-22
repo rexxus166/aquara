@@ -2,14 +2,14 @@
 $activeMenu = $activeMenu ?? '';
 ?>
 
-<link rel="stylesheet" href="/aquara/assets/css/header_footer_pakar.css">
-<link rel="stylesheet" href="/aquara/assets/css/artikel_pakar_custom.css">
-<link rel="stylesheet" href="/aquara/assets/css/konsultasi_pakar_2.css">
+<link rel="stylesheet" href="/assets/css/header_footer_pakar.css">
+<link rel="stylesheet" href="/assets/css/artikel_pakar_custom.css">
+<link rel="stylesheet" href="/assets/css/konsultasi_pakar_2.css">
 
 <header class="site-header">
   <div class="container header-container">
     <a href="index_pakar.php?page=home_pakar" class="logo">
-      <img src="/aquara/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
+      <img src="/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
       <span class="logo-text">AQUARA</span>
     </a>
 
@@ -30,8 +30,8 @@ $activeMenu = $activeMenu ?? '';
         <p class="user-name">Dr. Ahmad Budiman</p>
         <p class="user-role">Pakar/Ahli</p>
       </div>
-      <img src="/aquara/assets/img/aquara/profil.png" alt="User Avatar" class="user-avatar">
-      <img src="/aquara/assets/img/aquara/dropdown.png" alt="Dropdown" class="dropdown-arrow">
+      <img src="/assets/img/aquara/profil.png" alt="User Avatar" class="user-avatar">
+      <img src="/assets/img/aquara/dropdown.png" alt="Dropdown" class="dropdown-arrow">
     </div>
   </div>
 </header>

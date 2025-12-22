@@ -2,8 +2,8 @@
 $activeMenu = $activeMenu ?? '';
 ?>
 
-<link rel="stylesheet" href="/aquara/assets/css/header_footer_pakar.css">
-<link rel="stylesheet" href="/aquara/assets/css/artikel_pakar_custom.css">
+<link rel="stylesheet" href="/assets/css/header_footer_pakar.css">
+<link rel="stylesheet" href="/assets/css/artikel_pakar_custom.css">
 
 <style>
      /* Style Header Pengunjung (Sama dengan Anggota) */
@@ -49,7 +49,7 @@ $activeMenu = $activeMenu ?? '';
 <header class="site-header">
   <div class="container header-container">
     <a href="index.php?page=home" class="logo">
-      <img src="/aquara/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
+      <img src="/assets/img/aquara/logo.png" alt="Aquara Logo" class="logo-img">
       <span class="logo-text">AQUARA</span>
     </a>
 
