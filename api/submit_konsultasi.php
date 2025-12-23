@@ -1,113 +1,137 @@
 <?php
+ini_set('display_errors', 0); // Jangan tampilkan error di output (supaya JSON tidak rusak)
+ini_set('log_errors', 1);     // Log error ke file log server
+error_reporting(E_ALL);       // Laporkan semua error
+
 header('Content-Type: application/json');
 session_start();
-require '../includes/config.php';
 
-$response = ['success' => false, 'message' => 'Terjadi kesalahan.'];
+try {
+    require '../includes/config.php';
 
-// 1. Cek login
-if (!isset($_SESSION['user_id'])) {
-    $response['message'] = 'Sesi tidak valid. Silakan login kembali.';
-    echo json_encode($response);
-    exit;
-}
+    $response = ['success' => false, 'message' => 'Terjadi kesalahan sistem.'];
 
-// 2. Cek metode POST
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+    // 1. Cek login
+    if (!isset($_SESSION['user_id'])) {
+        throw new Exception('Sesi tidak valid. Silakan login kembali.');
+    }
+
+    // 2. Cek metode POST
+    if ($_SERVER["REQUEST_METHOD"] != "POST") {
+        throw new Exception('Metode request tidak valid.');
+    }
+
     // 3. Ambil data
     $anggota_id = $_SESSION['user_id'];
     $telepon = $_POST['telepon'] ?? '';
+    // $nama_ahli bisa kosong jika user memilih "Pilihkan untuk saya" / random
     $nama_ahli = $_POST['ahli'] ?? '';
     $topik = $_POST['topik'] ?? '';
     $pertanyaan = $_POST['pertanyaan'] ?? '';
-    
+
     // 4. Validasi Sederhana
     if (empty($telepon) || empty($topik) || empty($pertanyaan)) {
-        $response['message'] = 'Semua field wajib diisi (kecuali ahli).';
-        echo json_encode($response);
-        exit;
+        throw new Exception('Semua field wajib diisi (kecuali ahli).');
     }
 
     // =========================================================
-    // 5. KOREKSI FINAL: Temukan 'pakar_id'
+    // 5. TENTUKAN PAKAR (SPESIFIK ATAU RANDOM)
     // =========================================================
-    
-    $pakar_id = null;
-    if (!empty($nama_ahli)) {
-        
-        // --- KODE BARU YANG LEBIH PINTAR ---
-        // 1. Buang semua gelar (Dr, Drs, Ir) + titik + spasi
-        //    'i' di akhir artinya (case-insensitive)
-        $nama_bersih = preg_replace('/^(Dr|Drs|Ir)\.?\s*/i', '', $nama_ahli);
-        
-        // 2. Hapus spasi ekstra di awal/akhir jika ada
-        $nama_bersih = trim($nama_bersih);
-        // --- AKHIR KODE BARU ---
 
-        // Cari di tabel 'users' pakai nama yang sudah bersih
-        $stmt_pakar = $conn->prepare("SELECT id FROM users WHERE nama = ? AND role_id = 3");
-        $stmt_pakar->bind_param("s", $nama_bersih); // Pakai $nama_bersih
-        $stmt_pakar->execute();
+    $pakar_id = null;
+
+    // A. JIKA USER MEMILIH NAMA AHLI
+    if (!empty($nama_ahli)) {
+
+        // Bersihkan nama
+        $nama_bersih = preg_replace('/^(Dr|Drs|Ir)\.?\s*/i', '', $nama_ahli);
+        $nama_bersih = trim($nama_bersih);
+
+        // Cari ID pakar berdasarkan nama
+        $sql_pakar = "SELECT id FROM users WHERE nama = ? AND role_id = 3";
+        $stmt_pakar = $conn->prepare($sql_pakar);
+
+        if (!$stmt_pakar) {
+            throw new Exception("Gagal prepare statement (cari pakar): " . $conn->error);
+        }
+
+        $stmt_pakar->bind_param("s", $nama_bersih);
+
+        if (!$stmt_pakar->execute()) {
+            throw new Exception("Gagal execute statement (cari pakar): " . $stmt_pakar->error);
+        }
+
         $result_pakar = $stmt_pakar->get_result();
-        
+
         if ($result_pakar->num_rows > 0) {
             $pakar = $result_pakar->fetch_assoc();
             $pakar_id = (int)$pakar['id'];
         }
         $stmt_pakar->close();
-    }
-    
-    // Jika user memilih nama, tapi nama itu tidak ditemukan
-    if (!empty($nama_ahli) && $pakar_id === null) {
-        $response['message'] = 'Ahli yang Anda pilih tidak valid. (Debug: Gagal menemukan "' . $nama_bersih . '")';
-        echo json_encode($response);
-        exit;
+
+        // Jika user memilih nama spesifik, tapi tidak ketemu di database
+        if ($pakar_id === null) {
+            throw new Exception('Ahli yang Anda pilih tidak ditemukan di database.');
+        }
     }
 
-    // Jika tidak memilih ahli, pilih acak
+    // B. JIKA TIDAK ADA PAKAR DIPILIH (ATAU TIDAK KETEMU), PILIH ACAK
+    // (Logic: Kalau user sengaja pilih acak, $nama_ahli kosong, jadi masuk sini.
+    //  Kalau user pilih nama tapi gagal, baris di atas sudah throw Exception, jadi aman.)
     if ($pakar_id === null) {
-        $stmt_rand_pakar = $conn->prepare("SELECT id FROM users WHERE role_id = 3 ORDER BY RAND() LIMIT 1");
-        $stmt_rand_pakar->execute();
+        $sql_rand = "SELECT id FROM users WHERE role_id = 3 ORDER BY RAND() LIMIT 1";
+        $stmt_rand_pakar = $conn->prepare($sql_rand);
+
+        if (!$stmt_rand_pakar) {
+            throw new Exception("Gagal prepare statement (random pakar): " . $conn->error);
+        }
+
+        if (!$stmt_rand_pakar->execute()) {
+            throw new Exception("Gagal execute statement (random pakar): " . $stmt_rand_pakar->error);
+        }
+
         $result_pakar = $stmt_rand_pakar->get_result();
         if ($result_pakar->num_rows > 0) {
             $pakar = $result_pakar->fetch_assoc();
             $pakar_id = (int)$pakar['id'];
         } else {
-            $response['message'] = 'Tidak ada pakar yang tersedia saat ini.';
-            echo json_encode($response);
-            exit;
+            throw new Exception('Tidak ada pakar yang tersedia saat ini.');
         }
         $stmt_rand_pakar->close();
     }
+
     // =========================================================
-    // AKHIR DARI BAGIAN 5
+    // 6. SIMPAN KONSULTASI
     // =========================================================
 
-    // 6. Gabungkan pesan
+    // Gabungkan pesan
     $pesan_lengkap = "Topik: " . $topik . "\n\n" . $pertanyaan;
-
-    // 7. Masukkan ke database 'konsultasi'
     $pengirim = 'anggota';
-    $stmt_insert = $conn->prepare("INSERT INTO konsultasi (anggota_id, pakar_id, pesan, pengirim) VALUES (?, ?, ?, ?)");
+
+    $sql_insert = "INSERT INTO konsultasi (anggota_id, pakar_id, pesan, pengirim) VALUES (?, ?, ?, ?)";
+    $stmt_insert = $conn->prepare($sql_insert);
+
+    if (!$stmt_insert) {
+        throw new Exception("Gagal prepare statement (insert konsultasi): " . $conn->error);
+    }
+
     $stmt_insert->bind_param("iiss", $anggota_id, $pakar_id, $pesan_lengkap, $pengirim);
 
-    // 8. Eksekusi dan kirim respons
     if ($stmt_insert->execute()) {
         $response['success'] = true;
         $response['message'] = 'Konsultasi berhasil dikirim.';
         $response['konsultasi_id'] = $conn->insert_id;
     } else {
-        $response['message'] = 'Gagal menyimpan ke database: ' . $conn->error;
+        throw new Exception('Gagal menyimpan ke database: ' . $stmt_insert->error);
     }
 
     $stmt_insert->close();
     $conn->close();
-
-} else {
-    $response['message'] = 'Metode request tidak valid.';
+} catch (Exception $e) {
+    $response['success'] = false;
+    $response['message'] = $e->getMessage();
+    // Opsional: $response['debug'] = $e->getTraceAsString();
 }
 
 // 9. Kembalikan respons JSON
 echo json_encode($response);
-?>
