@@ -6,7 +6,7 @@ $nama_user = $_SESSION['nama'] ?? 'Pengguna';
 $email_user = $_SESSION['email'] ?? 'Tidak ada email';
 
 // Ambil path foto dari session
-$foto_user = $_SESSION['foto_profil'] ?? null;
+$foto_user = isset($_SESSION['foto_profil']) ? trim($_SESSION['foto_profil']) : null;
 $path_foto_default = "/assets/img/aquara/profil.png";
 
 if (!empty($foto_user)) {

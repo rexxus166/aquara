@@ -36,7 +36,7 @@ if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] == 0) {
     }
 
     // 4. Siapkan Path dan Nama File Baru
-    $upload_dir = '../uploads/profil/'; // Path dari file API ini
+    $upload_dir = __DIR__ . '/../uploads/profil/'; // Path absolut
     $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
 
     // Buat nama file unik: "user_ID_timestamp.ext"
