@@ -81,7 +81,7 @@ if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] == 0) {
             $response['success'] = true;
             $response['message'] = 'Foto profil berhasil diupdate!';
             // Kirim balik path foto yang baru agar JS bisa update tampilan
-            $response['newFotoPath'] = '/aquara/uploads/profil/' . $new_filename;
+            $response['newFotoPath'] = '/uploads/profil/' . $new_filename;
         } else {
             $response['message'] = 'Gagal mengupdate database.';
         }
