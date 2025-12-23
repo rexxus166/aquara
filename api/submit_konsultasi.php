@@ -108,14 +108,16 @@ try {
     $pesan_lengkap = "Topik: " . $topik . "\n\n" . $pertanyaan;
     $pengirim = 'anggota';
 
-    $sql_insert = "INSERT INTO konsultasi (anggota_id, pakar_id, pesan, pengirim) VALUES (?, ?, ?, ?)";
+    // UPDATE: Tambahkan kolom 'topik' ke dalam query INSERT
+    $sql_insert = "INSERT INTO konsultasi (anggota_id, pakar_id, topik, pesan, pengirim) VALUES (?, ?, ?, ?, ?)";
     $stmt_insert = $conn->prepare($sql_insert);
 
     if (!$stmt_insert) {
         throw new Exception("Gagal prepare statement (insert konsultasi): " . $conn->error);
     }
 
-    $stmt_insert->bind_param("iiss", $anggota_id, $pakar_id, $pesan_lengkap, $pengirim);
+    // Bind param: i=int (anggota), i=int (pakar), s=string (topik), s=string (pesan), s=string (pengirim)
+    $stmt_insert->bind_param("iisss", $anggota_id, $pakar_id, $topik, $pesan_lengkap, $pengirim);
 
     if ($stmt_insert->execute()) {
         $response['success'] = true;
