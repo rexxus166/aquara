@@ -11,7 +11,8 @@ $path_foto_default = "/assets/img/aquara/profil.png";
 
 if (!empty($foto_user)) {
     // Cek apakah foto adalah URL eksternal (misal dari Google Login)
-    if (filter_var($foto_user, FILTER_VALIDATE_URL)) {
+    // Gunakan strpos agar lebih robust daripada filter_var
+    if (strpos($foto_user, 'http') === 0) {
         $path_foto_tampil = $foto_user;
     } else {
         $path_foto_tampil = "/aquara/uploads/profil/" . htmlspecialchars($foto_user);
@@ -147,7 +148,7 @@ if (!empty($foto_user)) {
                 submitButton.disabled = true;
                 submitButton.textContent = 'Mengupload...';
 
-                fetch('/aquara/api/update_foto_profil.php', {
+                fetch('../../api/update_foto_profil.php', {
                         method: 'POST',
                         body: formData
                     })
@@ -209,7 +210,7 @@ if (!empty($foto_user)) {
                 profilSubmitButton.disabled = true;
                 profilSubmitButton.textContent = 'Menyimpan...';
 
-                fetch('/aquara/api/update_profil_info.php', {
+                fetch('../../api/update_profil_info.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -274,7 +275,7 @@ if (!empty($foto_user)) {
                 passwordSubmitButton.disabled = true;
                 passwordSubmitButton.textContent = 'Menyimpan...';
 
-                fetch('/aquara/api/update_password.php', {
+                fetch('../../api/update_password.php', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
