@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Jika tidak memilih ahli, pilih acak
     if ($pakar_id === null) {
         $stmt_rand_pakar = $conn->prepare("SELECT id FROM users WHERE role_id = 3 ORDER BY RAND() LIMIT 1");
-        $stmt_pakar->execute();
+        $stmt_rand_pakar->execute();
         $result_pakar = $stmt_rand_pakar->get_result();
         if ($result_pakar->num_rows > 0) {
             $pakar = $result_pakar->fetch_assoc();
