@@ -45,6 +45,11 @@ if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] == 0) {
     $upload_path = $upload_dir . $new_filename;
 
     // 5. Pindahkan File
+    // Pastikan folder ada
+    if (!is_dir($upload_dir)) {
+        mkdir($upload_dir, 0755, true);
+    }
+
     if (move_uploaded_file($file['tmp_name'], $upload_path)) {
 
         // 6. Hapus foto lama (jika ada)
@@ -82,7 +87,9 @@ if (isset($_FILES['foto_profil']) && $_FILES['foto_profil']['error'] == 0) {
         }
         $stmt_update->close();
     } else {
-        $response['message'] = 'Gagal memindahkan file yang diupload.';
+        $error = error_get_last();
+        $response['message'] = 'Gagal memindahkan file yang diupload. Error: ' . ($error['message'] ?? 'Unknown');
+        $response['debug_path'] = $upload_path;
     }
 } else {
     $response['message'] = 'Tidak ada file yang dipilih atau terjadi error upload.';

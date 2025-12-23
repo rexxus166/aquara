@@ -11,11 +11,13 @@ $path_foto_default = "/assets/img/aquara/profil.png";
 
 if (!empty($foto_user)) {
     // Cek apakah foto adalah URL eksternal (misal dari Google Login)
-    // Gunakan strpos agar lebih robust daripada filter_var
-    if (strpos($foto_user, 'http') === 0) {
-        $path_foto_tampil = $foto_user;
+    // Gunakan filter_var untuk validasi URL yang lebih robust
+    // Trim lagi untuk memastikan tidak ada whitespace
+    $foto_user_clean = trim($foto_user);
+    if (filter_var($foto_user_clean, FILTER_VALIDATE_URL)) {
+        $path_foto_tampil = $foto_user_clean;
     } else {
-        $path_foto_tampil = "/aquara/uploads/profil/" . htmlspecialchars($foto_user);
+        $path_foto_tampil = "/aquara/uploads/profil/" . htmlspecialchars($foto_user_clean);
     }
 } else {
     $path_foto_tampil = $path_foto_default;
